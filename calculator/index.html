@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Example</title>
+    <script>
+        function showForm() {
+            document.getElementById("form-container").style.display = "block";
+            document.getElementById("display-container").style.display = "none";
+        }
+
+        function showDetails() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            if (name === "" || email === "") {
+                alert("Please fill out all fields.");
+            } else {
+                document.getElementById("form-container").style.display = "none";
+                document.getElementById("display-container").style.display = "block";
+                document.getElementById("display-name").textContent = name;
+                document.getElementById("display-email").textContent = email;
+            }
+        }
+    </script>
+    <style>
+        #display-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sample Form</h1>
+    <div id="form-container">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <br><br>
+        <button onclick="showDetails()">Submit</button>
+    </div>
+
+    <div id="display-container">
+        <h2>User Details</h2>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td id="display-name"></td>
+                <td id="display-email"></td>
+            </tr>
+        </table>
+        <button onclick="showForm()">Edit Details</button>
+    </div>
+</body>
+</html>
